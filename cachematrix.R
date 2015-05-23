@@ -42,10 +42,26 @@ cachemean <- function(x, ...) {
   m
 }
 
-## Write a short comment describing this function
+# `makeCacheMatrix` creates a special "vector", which is
+# really a list containing a function to
+
+# 1.  set the value of a matrix
+# 2.  get the value of a matrix
+# 3.  set the value of the matrix inverse
+# 4.  get the value of the matrix inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-
+  i <- NULL
+  set <- function(y) {
+    x <<- y
+    i <<- NULL
+  }
+  get <- function() x
+  setinverse <- function(solve) i <<- solve
+  getinverse <- function() i
+  list(set = set, get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)
 }
 
 
