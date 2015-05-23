@@ -40,7 +40,8 @@ cachemean <- function(x, ...) {
   m <- mean(data, ...)
   x$setmean(m)
   m
-  
+}
+
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
